@@ -54,8 +54,8 @@ jobs:
       - name: Require the main branch
         shell: bash
         run: |
-          if [[ "$GITHUB_REF" != 'refs/heads/main' ]]; then
-            echo 'Releases can only be published from main.' >&2
+          if [[ "$GITHUB_REF" != 'refs/heads/main' && "$GITHUB_REF" != 'refs/heads/release/2.x' ]]; then
+            echo 'Releases can only be published from main or release/2.x.' >&2
             exit 1
           fi
 
