@@ -48,7 +48,7 @@ test('the settings adapter prefers the fiber live config over the apply-time sna
     effect(fn) { disposers.push(fn); return () => {} },
   }
   const disposers = []
-  const adapter = createSettingsAdapter(ctx, snapshot)
+  const adapter = createSettingsAdapter(ctx, {}, snapshot, 'codex-subscription')
 
   assert.equal(adapter.get()[SPEED_MODE_FIELD], SPEED_MODE_STANDARD)
   live[SPEED_MODE_FIELD] = SPEED_MODE_FAST
